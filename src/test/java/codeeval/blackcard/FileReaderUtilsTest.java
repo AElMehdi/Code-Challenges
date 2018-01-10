@@ -1,7 +1,7 @@
 package codeeval.blackcard;
 
-import static codeeval.blackcard.FileReaderUtils.getBlackSpot;
-import static codeeval.blackcard.FileReaderUtils.getPlayers;
+import static codeeval.blackcard.BlackCardValidator.getBlackSpot;
+import static codeeval.blackcard.BlackCardValidator.getPlayers;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 
 import java.util.ArrayList;
@@ -12,7 +12,6 @@ public class FileReaderUtilsTest {
 
    @Test
    public void should_return_black_card_from_a_valid_input() {
-      // TODO Reimplement it using regex
       int blackSpot = getBlackSpot("Player1 Player2 Player3 Player4 | 7");
 
       assertThat(blackSpot).isEqualTo(7);
@@ -27,7 +26,6 @@ public class FileReaderUtilsTest {
 
    @Test
    public void should_return_players_from_a_valid_input_keeping_the_order() {
-      // TODO Reimplement it using regex
       List<String> players = getPlayers("Player1 Player2 Player3 Player4 | 7");
 
       ArrayList expectedPlayers = dummyPlayers(4);
