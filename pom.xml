@@ -15,6 +15,20 @@
             <artifactId>junit</artifactId>
             <version>4.12</version>
         </dependency>
+
+       <dependency>
+          <groupId>org.testng</groupId>
+          <artifactId>testng</artifactId>
+          <version>6.13.1</version>
+          <scope>test</scope>
+       </dependency>
+
+       <dependency>
+          <groupId>org.assertj</groupId>
+          <artifactId>assertj-core</artifactId>
+          <version>3.9.0</version>
+          <scope>test</scope>
+       </dependency>
     </dependencies>
 
 </project>
