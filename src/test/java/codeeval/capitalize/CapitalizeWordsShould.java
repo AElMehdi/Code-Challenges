@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 public class CapitalizeWordsShould {
 
    @DataProvider(name = "testCases")
-   private Object[][] createData() {
+   private static Object[][] createData() {
       return new Object[][]{
             {null, ""},
             {"", ""},
