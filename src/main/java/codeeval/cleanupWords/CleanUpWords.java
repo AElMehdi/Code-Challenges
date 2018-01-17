@@ -1,11 +1,22 @@
 package codeeval.cleanupWords;
 
-public class CleanUpWords {
+class CleanUpWords {
 
-   public static String cleanUpWord(String word) {
-      String replaceNonAlphaWithSpaces = word.replaceAll("[^\\p{Alpha}]", " ");
-      String trimmed = replaceNonAlphaWithSpaces.trim();
-      String alors = trimmed.replaceAll("\\p{Alpha}+\\p{Space}*\\p{Alpha}", " ");
-      return trimmed;
+   private static final String ALPHA_MATCHER = "[^\\p{Alpha}]";
+   private static final String WHITESPACE_MATCHER = "\\s+";
+
+   static String cleanUpWord(String word) {
+      return isNullOrEmpty(word) ? "" : removeExtraSymbols(word);
+   }
+
+   private static String removeExtraSymbols(String word) {
+      String replaceNonAlphaWithSpaces = word.replaceAll(ALPHA_MATCHER, " ")
+            .trim();
+      return replaceNonAlphaWithSpaces.replaceAll(WHITESPACE_MATCHER, " ")
+            .toLowerCase();
+   }
+
+   private static boolean isNullOrEmpty(String word) {
+      return word  == null || word.isEmpty();
    }
 }
