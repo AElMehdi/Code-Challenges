@@ -47,6 +47,7 @@ buildNumber.properties
 *.rar
 *.tar
 *.zip
+.java-version
 
 # Logs and databases #
 ######################
@@ -64,3 +65,5 @@ buildNumber.properties
 ehthumbs.db
 Thumbs.db
 .gitignore
+.java-version
+src/main/resources/
