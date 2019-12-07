@@ -7,7 +7,7 @@ import org.junit.jupiter.api.io.TempDir;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
-import java.util.Comparator;
+import java.util.Arrays;
 import java.util.List;
 
 import static java.nio.file.Files.createFile;
@@ -42,7 +42,7 @@ class FilesSortingTest {
 
         List<String> files = list(temp)
                 .map(FilesSortingTest::apply)
-                .sorted(Comparator.naturalOrder())
+                .sorted(naturalOrder())
                 .collect(toList());
 
         assertThat(files).containsExactly("01. first file",
@@ -57,13 +57,11 @@ class FilesSortingTest {
     }
 
 
-    // Answer to the following stackoverflow question:
-    // https://stackoverflow.com/questions/59204214/sorting-elements-file-array
     @Test
-    void should_sort_files_from_a_folder_old_api() {
+    void should_sort_file_names_from_a_folder_old_api() {
         List<String> files = stream(requireNonNull(file.listFiles()))
                 .map(File::getName)
-                .sorted(Comparator.naturalOrder())
+                .sorted(naturalOrder())
                 .collect(toList());
 
         assertThat(files).containsExactly("1. Selenium Introduction", "2. Complete Guide",
