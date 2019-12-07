@@ -13,6 +13,7 @@ import java.util.List;
 import static java.nio.file.Files.createFile;
 import static java.nio.file.Files.list;
 import static java.util.Arrays.stream;
+import static java.util.Comparator.naturalOrder;
 import static java.util.Objects.requireNonNull;
 import static java.util.stream.Collectors.toList;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -67,4 +68,18 @@ class FilesSortingTest {
         assertThat(files).containsExactly("1. Selenium Introduction", "2. Complete Guide",
                 "3. Brush up Java concepts", "38. Docker Sensei");
     }
+
+    // Answer to the following stackoverflow question:
+    // https://stackoverflow.com/questions/59204214/sorting-elements-file-array
+    @Test
+    void should_sort_files_from_a_folder_old_api_using_stream() {
+        List<File> sortedFiles = stream(requireNonNull(file.listFiles()))
+                .sorted(File::compareTo)
+                .collect(toList());
+
+        assertThat(sortedFiles)
+                .extracting("name")
+                .containsExactly("1. Selenium Introduction", "2. Complete Guide", "3. Brush up Java concepts", "38. Docker Sensei");
+    }
+
 }
