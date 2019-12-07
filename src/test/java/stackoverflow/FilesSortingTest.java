@@ -82,4 +82,15 @@ class FilesSortingTest {
                 .containsExactly("1. Selenium Introduction", "2. Complete Guide", "3. Brush up Java concepts", "38. Docker Sensei");
     }
 
+    @Test
+    void should_sort_files_from_a_folder_old_api_using_arrays_sort() {
+        File[] sortedFiles = file.listFiles();
+
+        // One liner
+        Arrays.sort(sortedFiles);
+
+        assertThat(sortedFiles)
+                .extracting("name")
+                .containsExactly("1. Selenium Introduction", "2. Complete Guide", "3. Brush up Java concepts", "38. Docker Sensei");
+    }
 }
