@@ -21,7 +21,7 @@ public class PdfEditorTest {
     public void should_replace_a_word_pdf_template() throws IOException, DocumentException {
         String dest = "hello_changed.pdf";
 
-        PdfEditor.editPdf("hello.pdf", dest);
+        PdfEditor.editPdf("cool.pdf", dest);
 
         assertThat(PdfEditor.read(dest)).contains("HELLOW HELLOW");
     }

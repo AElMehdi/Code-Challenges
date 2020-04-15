@@ -26,7 +26,7 @@ class PdfEditor {
         if (object instanceof PRStream) {
             PRStream stream = (PRStream)object;
             byte[] data = PdfReader.getStreamBytes(stream);
-            stream.setData(new String(data).replace("Hello World", "HELLOW HELLOW").getBytes());
+            stream.setData(new String(data).replace("Hello", "HELLOW HELLOW").getBytes());
         }
         PdfStamper stamper = new PdfStamper(reader, new FileOutputStream(dest));
         stamper.close();
