@@ -44,7 +44,6 @@
             <groupId>com.aelmehdi</groupId>
             <artifactId>myArtifact</artifactId>
             <version>1.0</version>
-            <type>pom</type>
         </dependency>
     </dependencies>
 
@@ -71,7 +70,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>com.aelmehdi.java.HelloWorld</mainClass>
+                    <mainClass>com.aelmehdi.HelloWorld</mainClass>
                     <arguments>
                         <argument>argument1</argument>
                     </arguments>
