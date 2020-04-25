@@ -70,9 +70,9 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>com.aelmehdi.HelloWorld</mainClass>
+                    <mainClass>com.aelmehdi.MyPdfWriter</mainClass>
                     <arguments>
-                        <argument>argument1</argument>
+                        <argument>./target</argument>
                     </arguments>
                 </configuration>
             </plugin>
