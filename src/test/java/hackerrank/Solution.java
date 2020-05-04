@@ -13,16 +13,21 @@ public class Solution {
             int a = query[0];
             int b = query[1];
             int k = query[2];
-            for (int i = a; i < b; i++) {
+            for (int i = a - 1; i < b; i++) {
                 baseArray[i] += k;
             }
         }
 
-        for (int i : baseArray) {
-            System.out.println(baseArray[i]);
+        long result = 0;
+
+        for (int value : baseArray) {
+            if (result < value) {
+                result = value;
+            }
         }
 
-        return 0;
+        System.out.println(result);
+        return result;
     }
 
     private static final Scanner scanner = new Scanner(System.in);
