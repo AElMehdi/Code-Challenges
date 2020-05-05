@@ -10,11 +10,11 @@ public class Solution {
         int[] baseArray = new int[n];
 
         for (int[] query : queries) {
-            int a = query[0];
-            int b = query[1];
-            int k = query[2];
-            for (int i = a - 1; i < b; i++) {
-                baseArray[i] += k;
+            long a = query[0];
+            long b = query[1];
+            long k = query[2];
+            for (long i = a - 1; i < b; i++) {
+                baseArray[(int)i] += k;
             }
         }
 
