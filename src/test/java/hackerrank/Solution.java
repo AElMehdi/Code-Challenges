@@ -7,6 +7,7 @@ public class Solution {
 
     // Complete the arrayManipulation function below.
     static long arrayManipulation(int n, int[][] queries) {
+        validate(n);
         int[] baseArray = new int[n];
 
         for (int[] query : queries) {
@@ -28,6 +29,12 @@ public class Solution {
 
         System.out.println(result);
         return result;
+    }
+
+    private static void validate(int n) {
+        if (n <= 3) {
+            throw new IllegalArgumentException();
+        }
     }
 
     private static final Scanner scanner = new Scanner(System.in);
