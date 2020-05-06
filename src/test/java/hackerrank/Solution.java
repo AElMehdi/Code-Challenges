@@ -3,6 +3,8 @@ package hackerrank;
 import java.io.IOException;
 import java.util.Scanner;
 
+import static java.lang.Math.*;
+
 public class Solution {
 
     // Complete the arrayManipulation function below.
@@ -32,7 +34,7 @@ public class Solution {
     }
 
     private static void validate(int n) {
-        if (n <= 3) {
+        if (n < 3 || n > pow(10, 7)) {
             throw new IllegalArgumentException();
         }
     }
