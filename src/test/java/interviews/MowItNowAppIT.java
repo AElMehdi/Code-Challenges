@@ -31,16 +31,16 @@ public class MowItNowAppIT {
         Coordinate firstMowerCoordinate = new Coordinate(1, 2);
         Coordinate secondMowerCoordinate = new Coordinate(3, 3);
 
-        AutoPilot autoPilot = new CardinalDirectionAutoPilot(lawn);
+        AutoPilot autoPilot = new CompassPilot();
 
-        Mower firstMower = new Mower(firstMowerCoordinate, "N", firstMowerInstructions, autoPilot);
-        Mower secondMower = new Mower(secondMowerCoordinate, "E", secondMowerInstructions, autoPilot);
+        Mower firstMower = new Mower(firstMowerCoordinate, "N", firstMowerInstructions);
+        Mower secondMower = new Mower(secondMowerCoordinate, "E", secondMowerInstructions);
 
 
         List<Mower> mowers = asList(firstMower, secondMower);
 
 
-        List<Mower> pilotedMowers = mowItNowApp.run(lawn, mowers);
+        List<Mower> pilotedMowers = mowItNowApp.run(lawn, mowers, autoPilot);
 
         assertThat(pilotedMowers)
                 .hasSize(2)

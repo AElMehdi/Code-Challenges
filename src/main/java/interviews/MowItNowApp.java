@@ -16,8 +16,8 @@ public class MowItNowApp {
         //        InitFromFile(path) => List<Mower>
     }
 
-    public List<Mower> run(Lawn lawn, List<Mower> mowers) {
-        mowers.forEach(mower -> mower.start());
+    public List<Mower> run(Lawn lawn, List<Mower> mowers, AutoPilot autoPilot) {
+        mowers.forEach(mower -> autoPilot.control(mower, lawn));
         return mowers;
     }
 }
