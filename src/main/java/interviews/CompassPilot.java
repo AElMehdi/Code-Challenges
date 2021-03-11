@@ -1,5 +1,7 @@
 package interviews;
 
+import static interviews.Direction.*;
+
 public class CompassPilot implements AutoPilot {
 
     @Override
@@ -14,10 +16,10 @@ public class CompassPilot implements AutoPilot {
     private void perform(Command command, Mower mower, Lawn lawn) {
         switch (command) {
             case D:
-                Direction.turnRight(mower.getDirection());
+                mower.setDirection(turnRight(mower.getDirection()));
                 break;
             case G:
-                Direction.turnLeft(mower.getDirection());
+                mower.setDirection(turnLeft(mower.getDirection()));
                 break;
             case A:
                 advance(mower, lawn);
