@@ -24,4 +24,10 @@ class DirectionTest {
         Direction direction = turnLeft(W);
         assertThat(direction).isEqualTo(S);
     }
+
+    @Test
+    public void should_go_from_N_to_W_when_turns_left() {
+        Direction direction = turnLeft(N);
+        assertThat(direction).isEqualTo(W);
+    }
 }
