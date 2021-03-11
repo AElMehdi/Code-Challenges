@@ -2,8 +2,6 @@ package interviews;
 
 import java.util.List;
 
-import static java.util.Collections.emptyList;
-
 public class MowItNowApp {
 
     public static void main(String[] args) {
@@ -15,10 +13,11 @@ public class MowItNowApp {
         //  Mower Object will have a position(x,y), navigator, instructions
 
 
-//        InitFromFile(path) => List<Mower>
+        //        InitFromFile(path) => List<Mower>
     }
 
     public List<Mower> run(Lawn lawn, List<Mower> mowers) {
-        return emptyList();
+        mowers.forEach(mower -> mower.start());
+        return mowers;
     }
 }

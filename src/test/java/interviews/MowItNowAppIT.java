@@ -6,9 +6,10 @@ import java.util.List;
 
 import static java.util.Arrays.asList;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.groups.Tuple.tuple;
 
 public class MowItNowAppIT {
-    private MowItNowApp mowerNavigator = new MowItNowApp();
+    private MowItNowApp mowItNowApp = new MowItNowApp();
 
 
     //Define how the lawn construct
@@ -39,13 +40,13 @@ public class MowItNowAppIT {
         List<Mower> mowers = asList(firstMower, secondMower);
 
 
-        List<Mower> mowersAfterRunning = mowerNavigator.run(lawn, mowers);
+        List<Mower> pilotedMowers = mowItNowApp.run(lawn, mowers);
 
-        assertThat(mowersAfterRunning)
+        assertThat(pilotedMowers)
                 .hasSize(2)
-                .flatExtracting("x", "y", "direction")
+                .extracting("coordinate", "direction")
                 .contains(
-                        new Mower(firstMowerCoordinate, "N", firstMowerInstructions, autoPilot),
-                        new Mower(secondMowerCoordinate, "E", firstMowerInstructions, autoPilot));
+                        tuple(new Coordinate(1, 3), "N"),
+                        tuple(new Coordinate(5, 1), "E"));
     }
 }
