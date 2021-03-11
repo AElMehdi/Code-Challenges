@@ -48,4 +48,13 @@ public class Mower {
     public int hashCode() {
         return Objects.hash(coordinate, direction, commands);
     }
+
+    @Override
+    public String toString() {
+        return "Mower{" +
+                "coordinate=" + coordinate +
+                ", direction=" + direction +
+                ", commands=" + commands +
+                '}';
+    }
 }

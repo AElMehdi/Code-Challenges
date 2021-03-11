@@ -3,8 +3,6 @@ package interviews;
 import org.junit.jupiter.api.Test;
 
 import static interviews.Command.*;
-import static interviews.Command.D;
-import static interviews.Command.G;
 import static interviews.Direction.*;
 import static java.util.Arrays.asList;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -31,6 +29,7 @@ class CompassPilotTest {
         assertThat(mower.getDirection()).isEqualTo(S);
     }
 
+// Parametrized tests candidate cases (skip commands)
     @Test
     void should_skip_command_when_reach_lawn_limit_in_x_axis_west_side() {
         Mower mower = new Mower(new Coordinate(0, 2), W, asList(A));
@@ -66,4 +65,16 @@ class CompassPilotTest {
 
         assertThat(mower).isEqualTo(new Mower(new Coordinate(3, 0), S, asList(A)));
     }
+
+
+    @Test
+    void should_advance_on_x_axis_east_side() {
+        Mower mower = new Mower(new Coordinate(3, 4), E, asList(A));
+
+        compassPilot.control(mower, new Lawn(new Coordinate(5, 5)));
+
+        assertThat(mower).isEqualTo(new Mower(new Coordinate(4, 4), E, asList(A)));
+    }
+
+
 }
