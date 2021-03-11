@@ -1,26 +1,35 @@
 package interviews;
 
 public enum Direction {
-    N(0),
-    E(1),
-    S(2),
-    W(3);
+    N,
+    E,
+    S,
+    W;
 
-    private int index;
 
-    Direction(int index) {
-        this.index = index;
-    }
+    public static final int LENGTH = values().length;
 
     public static Direction turnRight(Direction direction) {
-        return getByIndex((direction.index + 1) % values().length);
+        int index = direction.ordinal() + 1;
+        return getByIndex(index % LENGTH);
+    }
+
+    public static Direction turnLeft(Direction direction) {
+        int index = direction.ordinal() - 1;
+        return getByIndex(isNorth(direction) ?
+                convertNegative(index) :
+                index);
+    }
+
+    private static int convertNegative(int index) {
+        return index + LENGTH;
     }
 
     private static Direction getByIndex(int index) {
         return values()[index];
     }
 
-    public static Direction turnLeft(Direction direction) {
-        return getByIndex((direction.index - 1) + values().length);
+    private static boolean isNorth(Direction direction) {
+        return direction.ordinal() == 0;
     }
 }

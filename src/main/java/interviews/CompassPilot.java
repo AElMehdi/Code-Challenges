@@ -29,8 +29,7 @@ public class CompassPilot implements AutoPilot {
         }
     }
 
-    private void advance(Mower mower, Lawn lawn) {
+    void advance(Mower mower, Lawn lawn) {
         // Check which direction we are facing and de/increment the mower's coordinate accordingly, don't forget to make sure we're not moving out of the lawn
-        throw new UnsupportedOperationException();
     }
 }
