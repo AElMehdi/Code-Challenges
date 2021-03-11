@@ -21,6 +21,6 @@ public enum Direction {
     }
 
     public static Direction turnLeft(Direction direction) {
-        return getByIndex(direction.index - 1);
+        return getByIndex((direction.index - 1) + values().length);
     }
 }
