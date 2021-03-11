@@ -13,7 +13,7 @@ public enum Direction {
     }
 
     public static Direction turnRight(Direction direction) {
-        return getByIndex(direction.index + 1);
+        return getByIndex((direction.index + 1) % values().length);
     }
 
     private static Direction getByIndex(int index) {
