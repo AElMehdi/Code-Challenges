@@ -17,6 +17,7 @@ public class MowItNowApp {
     }
 
     public List<Mower> run(Lawn lawn, List<Mower> mowers, AutoPilot autoPilot) {
+        // Control has a side effect
         mowers.forEach(mower -> autoPilot.control(mower, lawn));
         return mowers;
     }

@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static interviews.Command.*;
+import static interviews.Direction.*;
 import static java.util.Arrays.asList;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.groups.Tuple.tuple;
@@ -25,16 +27,16 @@ public class MowItNowAppIT {
         Coordinate lawnTopRightCorner = new Coordinate(5, 5);
         Lawn lawn = new Lawn(lawnTopRightCorner);
 
-        char[] firstMowerInstructions = {'G', 'A', 'G', 'A', 'G', 'A', 'G', 'A', 'A'};
-        char[] secondMowerInstructions = {'A', 'A', 'D', 'A', 'A', 'D', 'A', 'D', 'D', 'A'};
+        List<Command> firstMowerCommands = asList(G, A, G, A, G, A, G, A, A);
+        List<Command> secondMowerCommands = asList(A, A, D, A, A, D, A, D, D, A);
 
         Coordinate firstMowerCoordinate = new Coordinate(1, 2);
         Coordinate secondMowerCoordinate = new Coordinate(3, 3);
 
         AutoPilot autoPilot = new CompassPilot();
 
-        Mower firstMower = new Mower(firstMowerCoordinate, "N", firstMowerInstructions);
-        Mower secondMower = new Mower(secondMowerCoordinate, "E", secondMowerInstructions);
+        Mower firstMower = new Mower(firstMowerCoordinate, N, firstMowerCommands);
+        Mower secondMower = new Mower(secondMowerCoordinate, E, secondMowerCommands);
 
 
         List<Mower> mowers = asList(firstMower, secondMower);
@@ -46,7 +48,7 @@ public class MowItNowAppIT {
                 .hasSize(2)
                 .extracting("coordinate", "direction")
                 .contains(
-                        tuple(new Coordinate(1, 3), "N"),
-                        tuple(new Coordinate(5, 1), "E"));
+                        tuple(new Coordinate(1, 3), N),
+                        tuple(new Coordinate(5, 1), E));
     }
 }

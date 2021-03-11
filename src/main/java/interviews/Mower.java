@@ -1,33 +1,35 @@
 package interviews;
 
+import java.util.List;
+
 public class Mower {
     private Coordinate coordinate;
-    private String direction;
-    private final char[] instructions;
+    private Direction direction;
+    private final List<Command> commands;
 
-    public Mower(Coordinate coordinate, String direction, char[] instructions) {
+    public Mower(Coordinate coordinate, Direction direction, List<Command> commands) {
         this.coordinate = coordinate;
         this.direction = direction;
-        this.instructions = instructions;
+        this.commands = commands;
     }
 
     public Coordinate getCoordinate() {
         return coordinate;
     }
 
-    public String getDirection() {
+    public Direction getDirection() {
         return direction;
     }
 
-    public char[] getInstructions() {
-        return instructions;
+    public List<Command> getCommands() {
+        return commands;
     }
 
     public void setCoordinate(Coordinate coordinate) {
         this.coordinate = coordinate;
     }
 
-    public void setDirection(String direction) {
+    public void setDirection(Direction direction) {
         this.direction = direction;
     }
 }
