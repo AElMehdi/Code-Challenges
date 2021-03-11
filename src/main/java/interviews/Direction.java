@@ -21,6 +21,6 @@ public enum Direction {
     }
 
     public static Direction turnLeft(Direction direction) {
-        throw new UnsupportedOperationException();
+        return getByIndex(direction.index - 1);
     }
 }
