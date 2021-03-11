@@ -1,6 +1,7 @@
 package interviews;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Mower {
     private Coordinate coordinate;
@@ -31,5 +32,20 @@ public class Mower {
 
     public void setDirection(Direction direction) {
         this.direction = direction;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Mower mower = (Mower) o;
+        return Objects.equals(coordinate, mower.coordinate) &&
+                direction == mower.direction &&
+                Objects.equals(commands, mower.commands);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(coordinate, direction, commands);
     }
 }

@@ -5,7 +5,8 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static interviews.Command.*;
-import static interviews.Direction.*;
+import static interviews.Direction.E;
+import static interviews.Direction.N;
 import static java.util.Arrays.asList;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.groups.Tuple.tuple;
